@@ -1,0 +1,198 @@
+<!-- changing paragraph content -->
+
+<p id="one"></p>
+<script>
+    var para=document.getElementById("one")
+    console.log(para.textContent)
+    para.textContent="Dhanush"
+</script> 
+
+ <!-- example 2 changing title,paragraph,and image usind id -->
+
+<h1 id="title">Hello World</h1>
+<div id="container">
+    <p id="para">hii!! how are you </p>
+    <p id="para">hdvsgefkuiefejshdkuawgfyewk</p>
+    <p id="para">im going to change this paragraph</p>
+</div>
+<body>
+    <img id="image" src=vijay.jpg>
+</body>
+<script>
+    var element=document.getElementById("title");
+    element.innerHTML="Bye World";
+    var paragraph=document.getElementById("para")
+    paragraph.innerHTML="i changed it"
+    document.getElementById("image").src="image.png"
+
+ </script> 
+
+ <!-- onclick event -->
+
+ <h1 id="title">HELLO WORLD</h1>
+ <button onclick="change()">Change</button>
+ <button ondblclick="modify()">modify</button>
+
+ <script>
+    function change(){
+        var Title=document.getElementById("title")
+        Title.innerHTML="BYE WORLD"
+    }
+    function modify(){
+        var Ans=document.getElementById("title")
+        Ans.innerHTML="LOADING"
+    }
+    
+    
+ </script>
+
+  <!-- addition of two numbers by getting input  -->
+
+<center>
+<h1>ADDITION</h1>
+ <input id="num1">
+ <input id="num2">
+ <button onclick="Ans()">Calculate</button>
+ <p id="result">Result</p>
+
+</center>
+ 
+ <script>
+    
+        var box1=document.getElementById("num1")
+        var box2=document.getElementById("num2")
+        var Result=document.getElementById("result")
+
+        
+        function Ans()
+        {
+
+        var box1val=Number(box1.value)
+        var box2val=Number(box2.value)
+        var total=box1val+box2val
+
+         Result.textContent=total
+
+    }
+ </script>
+
+
+ <!-- mouseup and mouse down  -->
+
+<h1>Javascript</h1>
+<h2>Mousedown and mouseup</h2>
+<p>Click text</p>
+<p id="para" onmouse="mousedown()" onmouseup="mouseup()"> When mouse is clicked down it turns red.
+    when mouse is clicked up it turns blue.
+</p>
+
+<script>
+    function mousedown(){
+        document.getElementById("para").style.color="red"
+    }
+    function mouseup(){
+        document.getElementById("para").style.color="blue"
+    }
+</script>
+
+
+<!-- synchronous and asynchronous -->
+
+<h1 id="demo"></h1>
+<script>
+    setTimeout(myFunction, 2000);
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "I love You !!";
+}
+</script>
+
+<!-- timer -->
+
+<h1 id="timer"></h1>
+<script>
+    setInterval(myfunction,1000)
+    function myfunction(){
+        let d=new Date()
+        document.getElementById("timer").innerHTML=d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
+    }
+</script>
+
+<!--promises-->
+
+<h1>PROMISES</h1>
+
+<script>
+    let data=new Promise((resolve,reject)=>{
+    setTimeout(()=>
+    {
+        const ans= "Dhanu";
+        if(ans){
+            resolve(ans)
+        }else{
+            reject("not found")
+    }
+    },3000)
+
+    })
+    data.then((name)=>{
+       
+            console.log(name)
+        })
+    
+    data.catch((error)=>{
+        console.log(error)
+    })
+
+</script> 
+
+<!--async await-->
+
+<script>
+    function football()
+    { return new Promise((resolve, reject) => {
+        setTimeout(() => {
+        
+            let football=true
+            if(football){
+                resolve("you kicked the ball")
+            }else{
+                reject("you didnt kick the ball")
+            }
+        },1000)
+        
+    }
+        
+)}
+
+function cricket(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let cricket=true
+            if(cricket){
+                resolve("the ball is gone to six")
+
+            }else{
+                reject("you are out")
+            }
+        }, 2000);
+    })
+}
+
+async function game(){
+    try{
+        let footballresult=await football()
+        console.log(footballresult)
+
+        let cricketresult=await cricket()
+        console.log(cricketresult)
+}catch(error){
+    console.log(error)
+}
+
+
+    }
+    
+game()
+
+</script>
